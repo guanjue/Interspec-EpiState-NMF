@@ -19,10 +19,6 @@ state_mat_od = as.matrix(read.table(state_file, header=T, sep='\t'))
 d1 = read.table(hg38_gene_state, header=F, sep='\t', comment.char='~')
 d2 = read.table(mm10_gene_state, header=F, sep='\t', comment.char='~')
 
-### read state coe scores
-state_coe = c(0, -1, 0.5, -0.5, 0.6, 0.1, 1, -3, 0.8, 0.3, 0.2, -2, 1, 0.8,
-	2, 2.1, 1.3, 1.1, -1.8, 1.8, 1.6, 1.5, 0.8, 3, 0.9)
-
 ### get state
 d1s = d1[,-c(1:3)]
 d2s = d2[,-c(1:3)]
@@ -51,12 +47,8 @@ d2s_sigmat_rowMax = log(apply(d2s_sigmat,1,max)+1)
 d2s_sigmat_rowMax = d2s_sigmat_rowMax/max(d2s_sigmat_rowMax)
 
 ### get cor matrix
-#d12_cor_mat = as.matrix(cor(t(d2s_sigmat), t(d1s_sigmat)))
 d12_cor_mat = as.matrix(cor(t(d2s_sigmat+matrix(rnorm(dim(d2s_sigmat)[1]*dim(d2s_sigmat)[2], sd=0.2), nrow=dim(d2s_sigmat)[1], ncol=dim(d2s_sigmat)[2]) ), t(d1s_sigmat+matrix(rnorm(dim(d1s_sigmat)[1]*dim(d1s_sigmat)[2], sd=0.2), nrow=dim(d1s_sigmat)[1], ncol=dim(d1s_sigmat)[2]) )))
-
 d12_cor_mat[is.na(d12_cor_mat)] = 0
-#d12_cor_mat_adj = t(apply(d12_cor_mat,1,function(x) x*(d1s_sigmat_rowMax)))
-#d12_cor_mat_adj = apply(d12_cor_mat_adj,2,function(x) x*(d2s_sigmat_rowMax))
 
 d12_cor_mat_adj = t(apply(d12_cor_mat,1,function(x) x*1))
 d12_cor_mat_adj = apply(d12_cor_mat_adj,2,function(x) x*1)
@@ -72,34 +64,3 @@ colnames(d12_cor_mat_adj) = NULL
 rownames(d12_cor_mat_adj) = NULL
 pheatmap(d12_cor_mat_adj, cluster_rows=F, cluster_cols=F, color=my_colorbar, breaks = breaksList)
 dev.off()
-
-#print(paste('Entropy:', Entropy(d12_cor_mat_adj)))
-
-get_cor_score = function(x){
-x = as.numeric(x)
-#x[x<0] = 0
-#xp = -log10(pnorm(max(x), mean = mean(x), sd = sd(x), lower.tail = F))
-#xp = -ppois(max(x), mean(x[x>0]), lower.tail = F, log.p = T)
-
-#x1 = x[xp<0.05]
-#x2 = x[xp>=0.05]
-#x1 = x[x>quantile(x, 0.99)]
-#x2 = x[x<=quantile(x, 0.99)]
-#p = t.test(max(x),x, alternative='greater')$p.value
-return(mean(x[x>quantile(x, 0.9)]))
-}
-
-png(paste(output_file, '.bar.1.png', sep=''), height=100, width=800)
-par(mar = c(0, 0, 0, 0))
-s1 = apply(d12_cor_mat_adj,2,function(x) get_cor_score(x))
-s1logp = -log10(pnorm(s1, mean(s1), sd(s1), lower.tail = F))
-barplot(rbind(s1logp), axes = F)
-dev.off()
-
-png(paste(output_file, '.bar.2.png', sep=''), height=100, width=800)
-par(mar = c(0, 0, 0, 0))
-s1 = apply(d12_cor_mat_adj,1,function(x) get_cor_score(x))
-s1logp = -log10(pnorm(s1, mean(s1), sd(s1), lower.tail = F))
-barplot(rbind(s1logp), axes = F)
-dev.off()
-

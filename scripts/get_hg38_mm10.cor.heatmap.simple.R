@@ -18,10 +18,6 @@ state_mat_od = as.matrix(read.table(state_file, header=T, sep='\t'))
 d1 = read.table(hg38_gene_state, header=F, sep='\t', comment.char='~')
 d2 = read.table(mm10_gene_state, header=F, sep='\t', comment.char='~')
 
-### read state coe scores
-state_coe = c(0, -1, 0.5, -0.5, 0.6, 0.1, 1, -3, 0.8, 0.3, 0.2, -2, 1, 0.8,
-	2, 2.1, 1.3, 1.1, -1.8, 1.8, 1.6, 1.5, 0.8, 3, 0.9)
-
 ### get state
 d1s = d1[,-c(1:3)]
 d2s = d2[,-c(1:3)]
@@ -50,12 +46,8 @@ d2s_sigmat_rowMax = log(apply(d2s_sigmat,1,max)+1)
 d2s_sigmat_rowMax = d2s_sigmat_rowMax/max(d2s_sigmat_rowMax)
 
 ### get cor matrix
-#d12_cor_mat = as.matrix(cor(t(d2s_sigmat), t(d1s_sigmat)))
 d12_cor_mat = as.matrix(cor(t(d2s_sigmat+matrix(rnorm(dim(d2s_sigmat)[1]*dim(d2s_sigmat)[2], sd=0.2), nrow=dim(d2s_sigmat)[1], ncol=dim(d2s_sigmat)[2]) ), t(d1s_sigmat+matrix(rnorm(dim(d1s_sigmat)[1]*dim(d1s_sigmat)[2], sd=0.2), nrow=dim(d1s_sigmat)[1], ncol=dim(d1s_sigmat)[2]) )))
-
 d12_cor_mat[is.na(d12_cor_mat)] = 0
-#d12_cor_mat_adj = t(apply(d12_cor_mat,1,function(x) x*(d1s_sigmat_rowMax)))
-#d12_cor_mat_adj = apply(d12_cor_mat_adj,2,function(x) x*(d2s_sigmat_rowMax))
 
 d12_cor_mat_adj = t(apply(d12_cor_mat,1,function(x) x*1))
 d12_cor_mat_adj = apply(d12_cor_mat_adj,2,function(x) x*1)
