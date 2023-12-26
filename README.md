@@ -1,11 +1,13 @@
-# Interspec-EpiState-NMF Identifying inter species epigenetic state correlation between human and mouse genes by NMF
+# Interspec-EpiState-NMF:
+Identifying inter species epigenetic state correlation between human and mouse genes by NMF
 
-# time bash /Users/guanjuexiang/Documents/projects/Joint_Human_Mouse_IDEAS_State/other_scripts/cormat_NMF_FDR/Interspec-EpiState-NMF.sh /Users/guanjuexiang/Documents/projects/Joint_Human_Mouse_IDEAS_State/other_scripts/cormat_NMF_FDR/input_files/config.info.txt 2> test_run.log.txt
-
+```
+ time bash /Users/guanjuexiang/Documents/projects/Joint_Human_Mouse_IDEAS_State/other_scripts/cormat_NMF_FDR/Interspec-EpiState-NMF.sh /Users/guanjuexiang/Documents/projects/Joint_Human_Mouse_IDEAS_State/other_scripts/cormat_NMF_FDR/input_files/config.info.txt 2> test_run.log.txt
+```
 
 # Interspec-EpiState-NMF      <img src="https://raw.githubusercontent.com/guanjue/Interspec-EpiState-NMF/main/figures/VisionBMG2_rh.png" align="right" width="120"/>
 
-## Interspecies regulatory landscapes and elements revealed by novel joint systematic integration of human and mouse blood cell epigenomes
+### Interspecies regulatory landscapes and elements revealed by novel joint systematic integration of human and mouse blood cell epigenomes
 Guanjue Xiang, Xi He, Belinda M. Giardine, Kathryn J. Isaac5, Dylan J. Taylor5, Rajiv C. McCoy5, Camden Jansen4, Cheryl A. Keller4, Alexander Q. Wixom4, April Cockburn4, Amber Miller4, Qian Qi6, Yanghua He6,7, Yichao Li6, Jens Lichtenberg8, Elisabeth F. Heuston8, Stacie M. Anderson9, Jing Luan10, Marit W. Vermunt10, Feng Yue11, Michael E.G. Sauria12, Michael C. Schatz12, James Taylor5,12, Berthold Göttgens13, Jim R. Hughes14, Douglas R. Higgs14, Mitchell J. Weiss, Yong Cheng, Gerd A. Blobel, David Bodine, Yu Zhang, Qunhua Li, Shaun Mahony, Ross C. Hardison
 
 ##
