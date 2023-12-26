@@ -13,7 +13,7 @@ hg38.gene.bed
 mm10.gene.bed
 ```
 
-- The `config.info.txt` includes all parameters used for the Interspec-EpiState-NMF pipeline. The details about the parameters in the `config.info.txt` file can be found [Here](https://raw.githubusercontent.com/guanjue/public_log_descriptions/main/Interspec-EpiState-NMF/parameter.details.md):
+- The `config.info.txt` includes all parameters used for the Interspec-EpiState-NMF pipeline. The details about the parameters in the `config.info.txt` file can be found [Here](https://github.com/guanjue/Interspec-EpiState-NMF/blob/main/Input_and_Output_descriptions/parameter.details.md):
 ```
 >>> cat /Path_to_Interspec-EpiState-NMF/input_files/config.info.txt
 script_dir	/Users/guanjuexiang/Documents/projects/git/Interspec-EpiState-NMF/scripts/

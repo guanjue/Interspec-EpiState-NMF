@@ -1,4 +1,4 @@
-# Interspec-EpiState-NMF      <img src="https://raw.githubusercontent.com/guanjue/public_log_descriptions/main/Interspec-EpiState-NMF/VisionBMG2_rh.png" align="right" width="120"/>
+# Interspec-EpiState-NMF      <img src="https://raw.githubusercontent.com/guanjue/Interspec-EpiState-NMF/main/figures/VisionBMG2_rh.png" align="right" width="120"/>
 
 
 ### Identifying inter species epigenetic state correlation between human and mouse genes by NMF
@@ -27,7 +27,7 @@
 Interspec-EpiState-NMF is a user-friendly pipeline designed for identifying genomic regions with highly correlated cross-cell type epigenetic state patterns between gene locus pairs. This analysis, as detailed in our [paper](https://www.biorxiv.org/content/10.1101/2023.04.02.535219v2), caters to a variety of gene comparisons. It accommodates both orthologous gene pairs across different species and different or identical genes within the same species. The pipeline outputs include a heatmap visualizing the correlation of cross-cell type epigenetic state patterns between each gene locus pair. Additionally, it provides a set of Non-negative Matrix Factorization (NMF) decomposition factors along with their corresponding loading scores at the two genes' locus. Another feature of this pipeline is the introduction of a False Discovery Rate (FDR)-based method for identifying highly correlated regions between gene locus, utilizing a background distribution derived from randomly selected genes.
 
 The Overview of the analysis about identifying genomic regions with highly correlated cross-cell type epigenetic state patterns between gene locus pairs are as follows:
-![logo](https://raw.githubusercontent.com/guanjue/public_log_descriptions/main/Interspec-EpiState-NMF/XiangEtAl_JointHMVISION_Figures.png)
+![logo](https://raw.githubusercontent.com/guanjue/Interspec-EpiState-NMF/main/figures/XiangEtAl_JointHMVISION_Figures.png)
 ###### Epigenetic comparisons of regulatory landscapes and cCREs. (A and B) DNA sequence alignments and correlations of epigenetic states in human GATA1 and mouse Gata1 genes and flanking genes. (A) Dot-plot view of chained blastZ alignments by PipMaker (Schwartz et al. 2000) between genomic intervals encompassing and surrounding the human GATA1 (GRCh38 chrX:48,760,001-48,836,000; 76kb) and mouse Gata1 (mm10 chrX:7,919,401-8,020,800; 101.4kb, reverse complement of reference genome) genes. The axes are annotated with gene locations (GENCODE), predicted cis-regulatory elements (cCREs), and binding patterns for GATA1 and EP300 in erythroid cells. (B) Matrix of Pearson correlation values between epigenetic states (quantitative contributions of each epigenetic feature to the assigned state) across 15 cell types analogous for human and mouse. The correlation is shown for each 200bp bin in one species with all the bins in the other species, using a red-blue heat map to indicate the value of the correlation. Axes are annotated with genes and cCREs in each species. (C) Decomposition of the correlation matrix (panel B) into six component parts or factors using nonnegative matrix factorization. (D-G) Correlation matrices for genomic intervals encompassing GATA1/Gata1 and flanking genes, reconstructed using values from NMF factors. (D and E) Correlation matrices using values of NMF factor 3 between human and mouse (panel D) or within human and within mouse (panel E). The red dashed boxes highlight the positive regulatory patterns in the GATA1/Gata1 genes, which exhibit conservation of both DNA sequence and epigenetic state pattern. The orange dashed box denotes the distal positive regulatory region present only in mouse, which shows conservation of epigenetic state pattern without corresponding sequence conservation. Beneath the correlation matrices in panel E are maps of IDEAS epigenetic states across 15 cell types, followed by a graph of the score and peak calls for NMF factor 3 and annotation of cCREs (thin black rectangles) and genes. (F and G) Correlation matrices using values of NMF factor 6 between human and mouse (panel F) or within human and within mouse (panel G). The green dashed boxes highlight the correlation of epigenetic state patterns within the same gene, both across the two species and within each species individually, while the black dashed boxes highlight the high correlation observed between the two genes GATA1 and HDAC6.
 
 
@@ -66,7 +66,7 @@ hg38.gene.bed
 mm10.gene.bed
 ```
 
-- The details about the input files can be found [Here](https://github.com/guanjue/public_log_descriptions/tree/main/Interspec-EpiState-NMF/Input_file_description):
+- The details about the input files can be found [Here](https://github.com/guanjue/Interspec-EpiState-NMF/tree/main/Input_and_Output_descriptions/Input_file_description):
 
 
 
@@ -101,7 +101,7 @@ GATA1.cor.heatmap.png.cor.mat.txt.NMFs.hg38.heatmap.png	Gata1.cor.mat.txt.NMFs.m
 GATA1.cor.mat.txt.NMFs.hg38.binary_FDRbgadj.heatmap.png	Gata1.cor.mat.txt.NMFs.mm10.binary_FDRbgadj.txt
 ```
 
-- The details about the output files can be found [Here](https://github.com/guanjue/public_log_descriptions/tree/main/Interspec-EpiState-NMF/Output_file_description):
+- The details about the output files can be found [Here](https://github.com/guanjue/Interspec-EpiState-NMF/tree/main/Input_and_Output_descriptions/Output_file_description):
 
 
 
@@ -109,7 +109,7 @@ GATA1.cor.mat.txt.NMFs.hg38.binary_FDRbgadj.heatmap.png	Gata1.cor.mat.txt.NMFs.m
 For questions or issues, please either create an issue on the GitHub repository or feel free to reach out via the following email addresses: guanjuexiang@gmail.com
 
 ## LICENSE
-This project is licensed under the GNU GENERAL PUBLIC License (Version >=2.0). See the [LICENSE](https://github.com/guanjue/JMnorm/blob/main/LICENSE) file for details.
+This project is licensed under the GNU GENERAL PUBLIC License (Version >=2.0). See the [LICENSE](https://github.com/guanjue/Interspec-EpiState-NMF/blob/main/LICENSE) file for details.
 
 
 
