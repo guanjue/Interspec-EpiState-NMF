@@ -47,7 +47,8 @@ R Packages: pheatmap
 ## Installation 
 ```
 # create conda environment for JMnorm with required dependencies
-conda create -n esnmf r-base r-pheatmap bedtools
+conda config --add channels bioconda
+conda create -n esnmf r r-pheatmap bedtools
 
 # activate the environment
 conda activate esnmf
@@ -69,28 +70,47 @@ hg38.gene.bed
 mm10.gene.bed
 ```
 
+
 ```
 >>> cat /Path_to_Interspec-EpiState-NMF/input_files/config.info.txt
-script_dir	/Users/guanjuexiang/Documents/projects/Joint_Human_Mouse_IDEAS_State/other_scripts/cormat_NMF_FDR/scripts/
-working_dir	/Users/guanjuexiang/Documents/projects/analysis/test_cormat_NMF_FDR_pipeline/
+script_dir	/Users/guanjuexiang/Documents/projects/git/Interspec-EpiState-NMF/scripts/
+working_dir	/Users/guanjuexiang/Documents/projects/analysis/test_cormat_NMF_FDR_pipeline_GATA1_Gata1/
 #
 hg38_gene	GATA1
 mm10_gene	Gata1
-hg38_gene_set	/Users/guanjuexiang/Documents/projects/Joint_Human_Mouse_IDEAS_State/other_scripts/cormat_NMF_FDR/input_files/hg38.gene.bed
-mm10_gene_set	/Users/guanjuexiang/Documents/projects/Joint_Human_Mouse_IDEAS_State/other_scripts/cormat_NMF_FDR/input_files/mm10.gene.bed
+hg38_gene_set	/Users/guanjuexiang/Documents/projects/git/Interspec-EpiState-NMF/input_files/hg38.gene.bed
+mm10_gene_set	/Users/guanjuexiang/Documents/projects/git/Interspec-EpiState-NMF/input_files/mm10.gene.bed
 hg38_gene_exp_win_u	50000
 hg38_gene_exp_win_d	50000
 mm10_gene_exp_win_u	50000
 mm10_gene_exp_win_d	50000
 #
-hg38_state_set	/Users/guanjuexiang/Documents/projects/analysis/0813_human_mouse_state_compare_heatmap/S3V2_IDEAS_hg38_r3_withHg38Mm10prior.state.matched_ct.bed
-mm10_state_set	/Users/guanjuexiang/Documents/projects/analysis/0813_human_mouse_state_compare_heatmap/S3V2_IDEAS_mm10_r3_withHg38Mm10prior.state.matched_ct.bed
-EpigeneticState_meansignal_mat_file	/Users/guanjuexiang/Documents/projects/Joint_Human_Mouse_IDEAS_State/other_scripts/cormat_NMF_FDR/input_files/IDEAS.EpigeneticState.mean_signal_mat.txt
+hg38_state_set	/Users/guanjuexiang/Documents/projects/git/Interspec-EpiState-NMF/input_files/S3V2_IDEAS_hg38_r3_withHg38Mm10prior.state.matched_ct.bed
+mm10_state_set	/Users/guanjuexiang/Documents/projects/git/Interspec-EpiState-NMF/input_files/S3V2_IDEAS_mm10_r3_withHg38Mm10prior.state.matched_ct.bed
+EpigeneticState_meansignal_mat_file	/Users/guanjuexiang/Documents/projects/git/Interspec-EpiState-NMF/input_files/IDEAS.EpigeneticState.mean_signal_mat.txt
 #
 random_background_gene_num	100
 fdr_threshold	0.1
 NMF_component_num	6
 ```
+The parameters in the `config.info.txt` file are defined as follows:
+
+(1) script_dir: Specifies the directory path where the pipeline scripts are located. Example: /Users/guanjuexiang/Documents/projects/git/Interspec-EpiState-NMF/scripts/.
+(2) working_dir: Defines the working directory for the pipeline analysis. Example: /Users/guanjuexiang/Documents/projects/analysis/test_cormat_NMF_FDR_pipeline/.
+(3) hg38_gene: The gene of interest in the human genome (hg38). Example: GATA1.
+(4) mm10_gene: The corresponding gene of interest in the mouse genome (mm10). Example: Gata1.
+(5) hg38_gene_set: The path to the BED file containing hg38 genes. Example: /Users/guanjuexiang/Documents/projects/git/Interspec-EpiState-NMF/input_files/hg38.gene.bed.
+(6) mm10_gene_set: The path to the BED file containing mm10 genes. Example: /Users/guanjuexiang/Documents/projects/git/Interspec-EpiState-NMF/input_files/mm10.gene.bed.
+(7) hg38_gene_exp_win_u and hg38_gene_exp_win_d: Specify the size of the upstream and downstream expansion (in base pairs) surrounding the transcription start site of the hg38 gene for the analysis. Both parameters are set to 50,000 base pairs each.
+(8) mm10_gene_exp_win_u and mm10_gene_exp_win_d: Similar to the hg38 parameters, these define the upstream and downstream expansion (in base pairs) surrounding the transcription start site of the mm10 gene. Both are set to 50000.
+(9) hg38_state_set: The path to the BED file containing hg38 epigenetic state data. Example: /Users/guanjuexiang/Documents/projects/git/Interspec-EpiState-NMF/input_files/S3V2_IDEAS_hg38_r3_withHg38Mm10prior.state.matched_ct.bed. (These files can be generated using the `get_IDEAS_epigenetic_state_file.sh` script in the `/Path_to_Interspec-EpiState-NMF/scripts/`)
+(10) mm10_state_set: The path to the BED file containing mm10 epigenetic state data. Example: /Users/guanjuexiang/Documents/projects/git/Interspec-EpiState-NMF/input_files/S3V2_IDEAS_mm10_r3_withHg38Mm10prior.state.matched_ct.bed. (These files can be generated using the `get_IDEAS_epigenetic_state_file.sh` script in the `/Path_to_Interspec-EpiState-NMF/scripts/`)
+(11) EpigeneticState_meansignal_mat_file: Specifies the path to the file containing the mean signal matrix for epigenetic states. Example: /Users/guanjuexiang/Documents/projects/git/Interspec-EpiState-NMF/input_files/IDEAS.EpigeneticState.mean_signal_mat.txt.
+(12) random_background_gene_num: The number of random background genes used in the analysis. Set to 100.
+(13) fdr_threshold: The threshold for the False Discovery Rate, used in statistical significance testing. Set to 0.1.
+(14) NMF_component_num: The number of components used in the Non-negative Matrix Factorization analysis. Set to 6.
+
+
 
 ```
 # Input reference signal matrix
@@ -129,6 +149,11 @@ cCREids	ATAC	H3K27ac	H3K27me3	H3K36me3	H3K4me1	H3K4me3	H3K9me3
 ## Running Interspec-EpiState-NMF
 Detailed instructions on using JMnorm can be found in the [Getting started with JMnorm](https://guanjue.github.io/JMnorm/) R markdown file.
 The testing signal matrices can be found in this link: https://github.com/guanjue/JMnorm/tree/main/docs
+```
+conda activate 
+time bash /Path_to_Interspec-EpiState-NMF/Interspec-EpiState-NMF.sh /Path_to_Interspec-EpiState-NMF/input_files/config.info.txt 2> test_run.log.txt
+```
+
 
 
 ## Output of Interspec-EpiState-NMF pipeline
