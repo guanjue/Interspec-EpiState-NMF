@@ -58,8 +58,7 @@ conda activate esnmf
 
 
 ## Input data
-- The input Target signal matrix and input Reference signal matrix should be formatted as N-by-(M+1) matrices, where N represents the number of cCREs, and M represents the number of chromatin features. The first column of each matrix contains the cCRE IDs. The signal values in orignal linear scale for each chromatin feature in the cCREs are saved in the 2~M columns. The first row each matrix contains the cCREids and the chromatin feature name of each column.
-- Example input Target / Reference signal matrices can be found in these links [Target signal matrix](https://github.com/guanjue/JMnorm/blob/main/docs/TCD8.JMnorm_sigmat.txt) & [Reference signal matrix](https://github.com/guanjue/JMnorm/blob/main/docs/ref.raw_sigmat.txt).
+- The input files 
 
 ```
 # list all input files
