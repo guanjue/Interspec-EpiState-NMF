@@ -41,9 +41,9 @@ Guanjue Xiang, ..., Ross Hardison. Interspecies regulatory landscapes and elemen
 
 
 ## Requirements
-bedtools
-R
-R Packages: pheatmap
+- bedtools
+- R
+- R Packages: pheatmap
 
 ## Installation 
 ```
