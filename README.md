@@ -66,7 +66,8 @@ conda activate esnmf
 >>> ls
 IDEAS.EpigeneticState.mean_signal_mat.txt
 config.info.txt
-epigenetic_state_bed_need_to_be_downloaded_from_usevision.org
+S3V2_IDEAS_hg38_r3_withHg38Mm10prior.state.matched_ct.bed
+S3V2_IDEAS_mm10_r3_withHg38Mm10prior.state.matched_ct.bed
 hg38.gene.bed
 mm10.gene.bed
 ```
