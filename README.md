@@ -3,7 +3,9 @@
  time bash /Users/guanjuexiang/Documents/projects/Joint_Human_Mouse_IDEAS_State/other_scripts/cormat_NMF_FDR/Interspec-EpiState-NMF.sh /Users/guanjuexiang/Documents/projects/Joint_Human_Mouse_IDEAS_State/other_scripts/cormat_NMF_FDR/input_files/config.info.txt 2> test_run.log.txt
 ```
 
-# Interspec-EpiState-NMF      <img src="https://raw.githubusercontent.com/guanjue/Interspec-EpiState-NMF/main/figures/VisionBMG2_rh.png" align="right" width="120"/>
+# Interspec-EpiState-NMF      <img src="https://raw.githubusercontent.com/guanjue/public_log_descriptions/main/Interspec-EpiState-NMF/VisionBMG2_rh.png" align="right" width="120"/>
+
+
 ### Identifying inter species epigenetic state correlation between human and mouse genes by NMF
 
 ##
