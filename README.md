@@ -32,7 +32,7 @@
 Combinatorial patterns of epigenetic features reflect transcriptional states. Existing normalization approaches may distort relationships between functionally correlated features by normalizing each feature independently. We present JMnorm, a novel approach that normalizes multiple epigenetic features simultaneously by leveraging information from correlated features. We show that JMnorm-normalized data preserve cross-feature correlations and combinatorial patterns of epigenetic features across cell types, improve cross-cell type gene expression prediction models, consistency between biological replicates, and detection of epigenetic changes upon perturbations. These findings suggest that JMnorm minimizes technical noise while preserving biologically relevant relationships between features. 
 
 ## Citation
-Guanjue Xiang, Yuchun Guo, David Bumcrot, Alla Sigova. a novel Joint Multi-feature normalization method for integrative and comparative epigenomics. (2023)
+Guanjue Xiang, ..., Ross Hardison. Interspecies regulatory landscapes and elements revealed by novel joint systematic integration of human and mouse blood cell epigenomes. (2023)
 
 
 ## Interspec-EpiState-NMF Overview
@@ -57,6 +57,17 @@ conda activate esnmf
 ## Input data
 - The input Target signal matrix and input Reference signal matrix should be formatted as N-by-(M+1) matrices, where N represents the number of cCREs, and M represents the number of chromatin features. The first column of each matrix contains the cCRE IDs. The signal values in orignal linear scale for each chromatin feature in the cCREs are saved in the 2~M columns. The first row each matrix contains the cCREids and the chromatin feature name of each column.
 - Example input Target / Reference signal matrices can be found in these links [Target signal matrix](https://github.com/guanjue/JMnorm/blob/main/docs/TCD8.JMnorm_sigmat.txt) & [Reference signal matrix](https://github.com/guanjue/JMnorm/blob/main/docs/ref.raw_sigmat.txt).
+
+```
+# list all input files
+>>> cd /Path_to_Interspec-EpiState-NMF/input_files/
+>>> ls
+IDEAS.EpigeneticState.mean_signal_mat.txt
+config.info.txt
+epigenetic_state_bed_need_to_be_downloaded_from_usevision.org
+hg38.gene.bed
+mm10.gene.bed
+```
 
 ```
 >>> cat /Path_to_Interspec-EpiState-NMF/input_files/config.info.txt
