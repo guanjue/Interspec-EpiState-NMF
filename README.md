@@ -1,5 +1,5 @@
 # Interspec-EpiState-NMF:
-### Identifying inter species epigenetic state correlation between human and mouse genes by NMF
+#### Identifying inter species epigenetic state correlation between human and mouse genes by NMF
 
 ```
  time bash /Users/guanjuexiang/Documents/projects/Joint_Human_Mouse_IDEAS_State/other_scripts/cormat_NMF_FDR/Interspec-EpiState-NMF.sh /Users/guanjuexiang/Documents/projects/Joint_Human_Mouse_IDEAS_State/other_scripts/cormat_NMF_FDR/input_files/config.info.txt 2> test_run.log.txt
