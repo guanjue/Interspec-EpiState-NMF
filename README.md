@@ -3,7 +3,7 @@
 # time bash /Users/guanjuexiang/Documents/projects/Joint_Human_Mouse_IDEAS_State/other_scripts/cormat_NMF_FDR/Interspec-EpiState-NMF.sh /Users/guanjuexiang/Documents/projects/Joint_Human_Mouse_IDEAS_State/other_scripts/cormat_NMF_FDR/input_files/config.info.txt 2> test_run.log.txt
 
 
-# Interspec-EpiState-NMF      <img src="https://raw.githubusercontent.com/guanjue/JMnorm/main/Figs/CAMP4.svg" align="right" width="120"/>
+# Interspec-EpiState-NMF      <img src="https://raw.githubusercontent.com/guanjue/Interspec-EpiState-NMF/main/figures/VisionBMG2_rh.png" align="right" width="120"/>
 
 ## Interspecies regulatory landscapes and elements revealed by novel joint systematic integration of human and mouse blood cell epigenomes
 Guanjue Xiang, Xi He, Belinda M. Giardine, Kathryn J. Isaac5, Dylan J. Taylor5, Rajiv C. McCoy5, Camden Jansen4, Cheryl A. Keller4, Alexander Q. Wixom4, April Cockburn4, Amber Miller4, Qian Qi6, Yanghua He6,7, Yichao Li6, Jens Lichtenberg8, Elisabeth F. Heuston8, Stacie M. Anderson9, Jing Luan10, Marit W. Vermunt10, Feng Yue11, Michael E.G. Sauria12, Michael C. Schatz12, James Taylor5,12, Berthold Göttgens13, Jim R. Hughes14, Douglas R. Higgs14, Mitchell J. Weiss, Yong Cheng, Gerd A. Blobel, David Bodine, Yu Zhang, Qunhua Li, Shaun Mahony, Ross C. Hardison
@@ -38,7 +38,7 @@ Guanjue Xiang, Yuchun Guo, David Bumcrot, Alla Sigova. a novel Joint Multi-featu
 
 
 ## Interspec-EpiState-NMF Overview
-![logo](https://raw.githubusercontent.com/guanjue/JMnorm/master/Figs/JMnorm.Figures1.png)
+![logo](https://raw.githubusercontent.com/guanjue/Interspec-EpiState-NMF/main/figures/XiangEtAl_JointHMVISION_Figures.png)
 An overview of the four key steps in the JMnorm normalization procedure. (A) Step 1: orthogonal transformation. The correlated components of various epigenetic signals are transformed into mutually independent high-dimensional PCA dimensions. Each colored block on the left represents the signal vector of all epigenetic features at the nref or ntar cCRE regions in reference or target sample, respectively. Colored blocks on the right denote corresponding transformed PCA epigenetic signal matrices for reference and target samples. The yellow box in the middle represents the PCA rotation matrix learned from the reference signal matrix. (B) Step 2: cCRE clustering. Reference cCRE clusters are generated based on the reference data in PCA space with the average signal reference matrix shown as a heatmap. Target cCREs are assigned to reference clusters according to the Euclidean distances between the signal vector of the target cCRE and the average signal vectors of reference clusters in the PCA space. Within each cluster, the number of cCREs, shown as colored blocks within the insert, may vary between the reference and target samples. (C) Step 3: within-cluster normalization. Target signal matrix is normalized against the reference matrix using within-cluster quantile normalization as shown for Cluster k. (D) Step4: reconstruction of the JMnorm-normalized target signal matrix in the original signal space. The yellow box in the middle indicates the transposed PCA rotation matrix learned in the first step (panel A).
 
 ## Requirements
