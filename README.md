@@ -31,7 +31,8 @@
 #####
 
 ## Summary
-Combinatorial patterns of epigenetic features reflect transcriptional states. Existing normalization approaches may distort relationships between functionally correlated features by normalizing each feature independently. We present JMnorm, a novel approach that normalizes multiple epigenetic features simultaneously by leveraging information from correlated features. We show that JMnorm-normalized data preserve cross-feature correlations and combinatorial patterns of epigenetic features across cell types, improve cross-cell type gene expression prediction models, consistency between biological replicates, and detection of epigenetic changes upon perturbations. These findings suggest that JMnorm minimizes technical noise while preserving biologically relevant relationships between features. 
+Interspec-EpiState-NMF is a user-friendly pipeline designed for identifying pairs of genomic regions with highly correlated cross-cell type epigenetic state patterns between gene locus pairs. This analysis, as detailed in our [paper](https://www.biorxiv.org/content/10.1101/2023.04.02.535219v2), caters to a variety of gene comparisons. It accommodates both orthologous gene pairs across different species and different or identical genes within the same species. The pipeline outputs include a heatmap visualizing the correlation of cross-cell type epigenetic state patterns between each gene locus pair. Additionally, it provides a set of Non-negative Matrix Factorization (NMF) decomposition factors along with their corresponding loading scores at the two genes' locus. Another feature of this pipeline is the introduction of a False Discovery Rate (FDR)-based method for identifying highly correlated regions between gene locus, utilizing a background distribution derived from randomly selected genes.
+
 
 ## Citation
 Guanjue Xiang, ..., Ross Hardison. Interspecies regulatory landscapes and elements revealed by novel joint systematic integration of human and mouse blood cell epigenomes. (2023)
@@ -91,8 +92,25 @@ time bash /Path_to_Interspec-EpiState-NMF/Interspec-EpiState-NMF.sh /Path_to_Int
 
 
 ## Output of Interspec-EpiState-NMF pipeline
-- The output target signal matrix after JMnorm should be formatted as N-by-(M+1) matrices, where N represents the number of cCREs, and M represents the number of chromatin features. The first column of each matrix contains the cCRE IDs. The signal values in orignal linear scale for each chromatin feature in the cCREs are saved in the 2~M columns.
-- Example output target signal matrix after JMnorm can be found in this [Target.JMnorm_sigmat.txt](https://github.com/guanjue/JMnorm/blob/main/docs/TCD8.JMnorm_sigmat.txt).
+```
+>>> ls /Users/guanjuexiang/Documents/projects/analysis/test_cormat_NMF_FDR_pipeline_GATA1_Gata1
+GATA1.Gata1.cor.heatmap.png		hg38.gene.GATA1.matched_ct.state.bed
+GATA1.Gata1.cor.heatmap.png.cor.mat.txt	mm10.gene.Gata1.bed
+NMF_reconstruction_GATA1_Gata1		mm10.gene.Gata1.matched_ct.state.bed
+config.info.txt				randomly_pick_bg_genes_hg38
+hg38.gene.GATA1.bed			randomly_pick_bg_genes_mm10
+
+>>> ls /Users/guanjuexiang/Documents/projects/analysis/test_cormat_NMF_FDR_pipeline_GATA1_Gata1/NMF_reconstruction_GATA1_Gata1 
+GATA1.Gata1.NMFs.num.BIC.pdf				GATA1.cor.mat.txt.NMFs.hg38.binary_FDRbgadj.txt
+GATA1.Gata1.cross_factor_cor_mat.pdf			Gata1.NMFs.num.BIC.pdf
+GATA1.Gata1.cross_factor_cor_mat.txt			Gata1.cor.heatmap.png.cor.mat.txt.NMFs.mm10.heatmap.png
+GATA1.cor.heatmap.png.cor.mat.txt.NMFs.hg38.heatmap.png	Gata1.cor.mat.txt.NMFs.mm10.binary_FDRbgadj.heatmap.png
+GATA1.cor.mat.txt.NMFs.hg38.binary_FDRbgadj.heatmap.png	Gata1.cor.mat.txt.NMFs.mm10.binary_FDRbgadj.txt
+```
+
+- The details about the output files can be found [Here](https://github.com/guanjue/public_log_descriptions/tree/main/Interspec-EpiState-NMF/Output_file_description):
+
+
 
 ## Support
 For questions or issues, please either create an issue on the GitHub repository or feel free to reach out via the following email addresses: guanjuexiang@gmail.com
