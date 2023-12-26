@@ -57,6 +57,30 @@ conda activate esnmf
 ## Input data
 - The input Target signal matrix and input Reference signal matrix should be formatted as N-by-(M+1) matrices, where N represents the number of cCREs, and M represents the number of chromatin features. The first column of each matrix contains the cCRE IDs. The signal values in orignal linear scale for each chromatin feature in the cCREs are saved in the 2~M columns. The first row each matrix contains the cCREids and the chromatin feature name of each column.
 - Example input Target / Reference signal matrices can be found in these links [Target signal matrix](https://github.com/guanjue/JMnorm/blob/main/docs/TCD8.JMnorm_sigmat.txt) & [Reference signal matrix](https://github.com/guanjue/JMnorm/blob/main/docs/ref.raw_sigmat.txt).
+
+```
+>>> cat /Path_to_Interspec-EpiState-NMF/input_files/config.info.txt
+script_dir	/Users/guanjuexiang/Documents/projects/Joint_Human_Mouse_IDEAS_State/other_scripts/cormat_NMF_FDR/scripts/
+working_dir	/Users/guanjuexiang/Documents/projects/analysis/test_cormat_NMF_FDR_pipeline/
+#
+hg38_gene	GATA1
+mm10_gene	Gata1
+hg38_gene_set	/Users/guanjuexiang/Documents/projects/Joint_Human_Mouse_IDEAS_State/other_scripts/cormat_NMF_FDR/input_files/hg38.gene.bed
+mm10_gene_set	/Users/guanjuexiang/Documents/projects/Joint_Human_Mouse_IDEAS_State/other_scripts/cormat_NMF_FDR/input_files/mm10.gene.bed
+hg38_gene_exp_win_u	50000
+hg38_gene_exp_win_d	50000
+mm10_gene_exp_win_u	50000
+mm10_gene_exp_win_d	50000
+#
+hg38_state_set	/Users/guanjuexiang/Documents/projects/analysis/0813_human_mouse_state_compare_heatmap/S3V2_IDEAS_hg38_r3_withHg38Mm10prior.state.matched_ct.bed
+mm10_state_set	/Users/guanjuexiang/Documents/projects/analysis/0813_human_mouse_state_compare_heatmap/S3V2_IDEAS_mm10_r3_withHg38Mm10prior.state.matched_ct.bed
+EpigeneticState_meansignal_mat_file	/Users/guanjuexiang/Documents/projects/Joint_Human_Mouse_IDEAS_State/other_scripts/cormat_NMF_FDR/input_files/IDEAS.EpigeneticState.mean_signal_mat.txt
+#
+random_background_gene_num	100
+fdr_threshold	0.1
+NMF_component_num	6
+```
+
 ```
 # Input reference signal matrix
 >>> head ref.raw_sigmat.txt
