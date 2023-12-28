@@ -24,7 +24,6 @@ The parameters in the `config.info.txt` file are defined as follows:
 
 - fdr_threshold: The threshold for the False Discovery Rate, used in statistical significance testing. Set to 0.1.
 
-- NMF_component_num: The number of components used in the Non-negative Matrix Factorization analysis. Set to 6.
-
 - random_background_gene_num: The number of random background genes used in the analysis. Set to 100.
 
+- NMF_component_num: The number of components used in the Non-negative Matrix Factorization analysis. User can choose the number of NMF factor based on the BIC figure that will be generated at the first time running the pipeline on the target genes. Example: 6.
