@@ -71,7 +71,7 @@ mm10.gene.bed
 
 
 ## Running Interspec-EpiState-NMF
-We have prepared a short video about how to run this pipeline [here](https://youtu.be/jl3CfoRThJA).
+- We have prepared a short video about how to run the Interspec-EpiState-NMF pipeline [Here](https://youtu.be/jl3CfoRThJA).
 ```
 # activate the environment
 conda activate esnmf
