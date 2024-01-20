@@ -16,4 +16,4 @@ EpigeneticState_meansignal_mat_file	/Users/guanjuexiang/Documents/projects/git/I
 #
 random_background_gene_num	100
 fdr_threshold	0.1
-NMF_component_num	6
+NMF_component_num	BIC

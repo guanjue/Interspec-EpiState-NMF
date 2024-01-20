@@ -264,12 +264,18 @@ if (!file.exists(paste0(output_folder, '/', hg38_gene, '.', mm10_gene, '.NMFs.nu
     plot(seq(1, NMF_n_max, by = 1), BIC_mat[1,], type='l', xlab='Number of components', ylab='BIC', main='BIC')
     points(seq(1, NMF_n_max, by = 1), BIC_mat[1,])
     dev.off()
+    # BIC decide the number of components
+    n_comp_BIC = which.min(BIC_mat[1,])
 }
 
 #  NMF decomposition
 set.seed(2019)
 #n_comp = 6
-nmf_result_0 <- nmf(d_mk_cor_mat_pos, k = n_comp)
+if (!is.na(n_comp)) {
+  nmf_result_0 <- nmf(d_mk_cor_mat_pos, k = n_comp)
+} else {
+  nmf_result_0 <- nmf(d_mk_cor_mat_pos, k = n_comp_BIC)
+}
 
 # Extract the independent components (ICs) and the mixing matrix
 nmf_result_0_W <- nmf_result_0$W
