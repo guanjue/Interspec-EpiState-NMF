@@ -191,9 +191,13 @@ get_bggene_adj_FDR_binary_mat = function(nmf_result_0_W, nmf_result_W_mat_long, 
 # plot NMFs binary heatmap
 plot_NMF_FDR_binary_heatmap = function(nmf_result_0_W_binary, output_folder, outputname){
     my_colorbar_binary=colorRampPalette(c('white','black'))(n = 100)
-    png(paste0(output_folder, '/', outputname), width = 300, height = 1000)
-    pheatmap(nmf_result_0_W_binary, cluster_rows=F, cluster_cols=F, width = 2, height = 6, legend=F, show_rownames=F, show_colnames=F, color=my_colorbar_binary)
-    dev.off()
+    # check if nmf_result_0_W_binary has more than 1 unique value
+    if (sum(nmf_result_0_W_binary) > 1) {
+      # plot NMFs binary heatmap
+      png(paste0(output_folder, '/', outputname), width = 300, height = 1000)
+      pheatmap(nmf_result_0_W_binary, cluster_rows=F, cluster_cols=F, width = 2, height = 6, legend=F, show_rownames=F, show_colnames=F, color=my_colorbar_binary)
+      dev.off()
+    }
 }
 
 ##############################################################################################################
