@@ -264,6 +264,13 @@ if (!file.exists(paste0(output_folder, '/', hg38_gene, '.', mm10_gene, '.NMFs.nu
     plot(seq(1, NMF_n_max, by = 1), BIC_mat[1,], type='l', xlab='Number of components', ylab='BIC', main='BIC')
     points(seq(1, NMF_n_max, by = 1), BIC_mat[1,])
     dev.off()
+    # save BIC_mat
+    write.table(BIC_mat, paste0(output_folder, '/', hg38_gene, '.', mm10_gene, '.NMFs.num.BIC.txt'), sep='\t', quote=F, row.names=F, col.names=F)
+    # BIC decide the number of components
+    n_comp_BIC = which.min(BIC_mat[1,])
+} else{
+    # read BIC_mat
+    BIC_mat = read.table(paste0(output_folder, '/', hg38_gene, '.', mm10_gene, '.NMFs.num.BIC.txt'), header=F, sep='\t', comment.char='~')
     # BIC decide the number of components
     n_comp_BIC = which.min(BIC_mat[1,])
 }
