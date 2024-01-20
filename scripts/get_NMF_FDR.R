@@ -233,7 +233,7 @@ dir.create(output_folder)
 
 # decide the number of components based on the BIC
 # check if the NMFs.num.BIC.png file not exists
-if (!file.exists(paste0(output_folder, '/', hg38_gene, '.', mm10_gene, '.NMFs.num.BIC.pdf'))) {
+if (!file.exists(paste0(output_folder, '/', hg38_gene, '.', mm10_gene, '.NMFs.num.BIC.txt'))) {
     # decide the number of components based on the BIC
     set.seed(2023)
     BIC_mat = c()
